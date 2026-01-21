@@ -64,7 +64,7 @@ function send_data() {
 
   xhr.onreadystatechange = function () {
     if (xhr.readyState ===  XMLHttpRequest.DONE) {
-      document.getElementById('prediction').innerHTML = "Prediction: $" + xhr.responseText;
+      document.getElementById('prediction').innerHTML =  xhr.responseText;
     }
   }
   xhr.onload = function(){};

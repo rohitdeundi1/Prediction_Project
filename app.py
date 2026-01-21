@@ -6,7 +6,7 @@ import pickle
 app = Flask(__name__)
 car = pd.read_csv('true_car_listings.csv')
 car.dropna(subset=["Make", "Model", "State", "City"], inplace=True)
-model = pickle.load(open('LinearReggrationModel.pkl', 'rb'))
+model = pickle.load(open('LinearRegrationModel.pkl', 'rb'))
 
 @app.route('/')
 def index():
@@ -49,8 +49,14 @@ def predict():
                             )
         price = model.predict(input_df)[0]
         price = round(price, 2)
+        if price <= 0:
+            return f"Predicted Price: $ 0"
+        else:
+            return f"Predicted Price: $ {price}"
 
-        return f"Predicted Price: ${price}"
+
+
+        return f"Predicted Price: $ {price}"
 
 
     except ValueError:
