@@ -61,11 +61,11 @@ def predict():
 
     except ValueError:
 
-        return "⚠️ Year and Kilometers Travelled must be valid numbers."
+        return " Year and Kilometers Travelled must be valid numbers."
 
     except Exception as e:
 
-        return f"❌ Something went wrong: {str(e)}"
+        return f" Something went wrong: {str(e)}"
 
 
 if __name__ == '__main__':
